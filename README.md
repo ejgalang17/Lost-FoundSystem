@@ -1,7 +1,4 @@
 # Barangay Lost and Found Information Management System
-IPT101 Integrative Programming, Section 4B, Group 1
-
-PHP 8 + MySQL web application. Runs on XAMPP (Windows/Mac/Linux) with no extra libraries.
 
 ## 1. Tools to install
 - XAMPP (Apache, PHP 8.1 or newer, MySQL/MariaDB, phpMyAdmin): https://www.apachefriends.org
@@ -20,17 +17,7 @@ PHP 8 + MySQL web application. Runs on XAMPP (Windows/Mac/Linux) with no extra l
 
 If PHP says `finfo` or `pdo_mysql` is missing, open `php.ini` in XAMPP and enable `extension=fileinfo` and `extension=pdo_mysql`, then restart Apache.
 
-## 3. Test checklist (use for your defense)
-1. Register a resident (Resident A) and report a **found** item with a photo. It shows "Pending review" in My activity.
-2. Confirm the item is **not** visible in Browse items while pending.
-3. Log in as staff, open Review reports, approve it. It now appears in Browse items.
-4. Register Resident B, open the item, send a claim request with proof. Status becomes "Claim pending".
-5. Resident A and Resident B exchange messages on the item page. Staff can read them.
-6. Staff opens Claim requests, verifies in person, approves. Status becomes "Claimed".
-7. Staff opens All records and closes the record. Status becomes "Closed".
-8. Staff opens Reports, picks a date range, prints or downloads CSV.
-
-## 4. File map
+## 3. File map
 | File | Purpose |
 |---|---|
 | `database/schema.sql` | Tables: users, categories, items, claims, messages, activity_log |
@@ -61,10 +48,5 @@ A rejected claim returns the item to `listed` when no other claim is waiting.
 - Only staff can open `admin/` pages; messages are visible only to the reporter, claimants, and staff.
 - Data Privacy Act consent recorded at registration (`users.consent_at`); actions are written to `activity_log`.
 
-## 7. Before using it for real (production)
-- Host with HTTPS, set a strong MySQL password and a non-root DB user, and delete `install.php`.
-- Set `session.cookie_secure=1` in php.ini once HTTPS is on.
-- Back up the database and `uploads/` regularly.
-
-## 8. Ideas for extending
+## 7. Ideas for extending
 Email or SMS notifications, residents list and deactivate/verify accounts, edit/withdraw own reports, auto-matching of lost vs found items, multi-photo upload.
